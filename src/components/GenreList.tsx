@@ -15,7 +15,6 @@ const GenreList = ({selectedGenre, onSelectGenre} : Props) => {
 
     if(error) return null;
     const onGenreClick= (genre: Genre) => {
-        console.log(genre.name)
         onSelectGenre(genre);
     }
     if(isLoading) return <List>{skeletonData.map(skeleton => <GenreListItemSkeleton key={skeleton}/>)}</List>
