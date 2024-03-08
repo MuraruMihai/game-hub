@@ -9,7 +9,9 @@ const axiosInstance = axios.create({
 
 export interface FetchResponse<T>{
     count: number,
-    results: T[]
+    results: T[],
+    next: string | null,
+    previous: string | null
  }
 
  class APIClient <T>{
