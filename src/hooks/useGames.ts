@@ -10,7 +10,9 @@ export interface Game {
     parent_platforms: { platform: Platform }[],
     metacritic: number,
     rating: number,
-    rating_top: number
+    rating_top: number,
+    slug: string,
+    description_raw: string
 }
 
 const apiClient = new APIClient<Game>('/games')
@@ -19,7 +21,7 @@ const useGames = () =>{
     const gameQuery = useGameQueryStore(s => s.gameQuery)
     return useInfiniteQuery<FetchResponse<Game>, Error>({
         queryKey: ['games', gameQuery],
-        queryFn: ({pageParam}) => apiClient.get({ params: {
+        queryFn: ({pageParam}) => apiClient.getAll({ params: {
                 genres : gameQuery.genreId, 
                 parent_platforms: gameQuery.platformId,
                 ordering: gameQuery.sortOrder,
