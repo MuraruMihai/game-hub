@@ -1,7 +1,9 @@
 import { useParams } from 'react-router-dom'
 import useGame from '../hooks/useGame';
-import { Heading, Spinner } from '@chakra-ui/react';
+import { Badge, HStack, Heading, Spinner, Text, VStack } from '@chakra-ui/react';
 import ExpandableText from '../components/ExpandableText';
+import DefinitionItem from '../components/DefinitionItem';
+import CriticScore from '../components/CriticScore';
 
 const GameDetailPage = () => {
     const {slug} = useParams();
@@ -16,6 +18,13 @@ const GameDetailPage = () => {
     <>
         <Heading>{game.name}</Heading>
         <ExpandableText>{game.description_raw}</ExpandableText>
+        
+        <DefinitionItem term='Plarforms'>
+            { game.parent_platforms?.map(({platform}) => <Text key={platform.id}>{platform.name}</Text>) }
+        </DefinitionItem>
+        <DefinitionItem term='Metascore'>
+           <CriticScore score={game.metacritic}/>
+        </DefinitionItem>
     </>
   )
 }

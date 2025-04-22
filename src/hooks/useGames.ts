@@ -20,6 +20,7 @@ const useGames = () =>{
         getNextPageParam: (lastPage, allPages) => {
             return lastPage.next ? allPages.length + 1 : undefined;
         },
+        initialPageParam: 1, // 🔥 Adaugă această linie
         staleTime: 24*60*60*1000 // 24h
     })
 } 
