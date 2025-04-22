@@ -1,6 +1,6 @@
 import { useParams } from 'react-router-dom'
 import useGame from '../hooks/useGame';
-import { Badge, HStack, Heading, Spinner, Text, VStack } from '@chakra-ui/react';
+import { Heading, Spinner, Text } from '@chakra-ui/react';
 import ExpandableText from '../components/ExpandableText';
 import DefinitionItem from '../components/DefinitionItem';
 import CriticScore from '../components/CriticScore';
